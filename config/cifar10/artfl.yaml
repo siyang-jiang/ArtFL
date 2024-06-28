@@ -1,0 +1,65 @@
+user: User1
+GPU: 0
+
+random_drop: true
+motivation_flag: false
+update_eval: true
+
+metainfo:
+  optimizer: sgd
+  work_dir: ./exp_results_cifar10
+  ckpt: ./exp_results/test_0.1_433/best.pth
+  exp_name: fedavg
+
+
+fl_opt:
+  rounds: 200
+  num_clients: 10
+  frac: 1               # the fraction of clients in each FL round
+  local_ep: 5           # local epoch
+  local_bs: 32          # local batch size
+  aggregation: fedavg   # fedavg, fedbn, fedprox
+  balanced_loader: false
+  feat_aug: false
+  branch: false
+  multi_scale: true     # multi-scale training
+  multi_scale_batch: 5
+  size_align: false
+
+
+criterions:
+  def_file: ./loss/KDLoss.py
+  loss_params: {Temp: 2, lamda: 0, loss_cls: ce, loss_kd: kl}   # lambda=0 means comman CE Loss
+
+
+networks:
+  feat_model:
+    def_file: ResNet8
+    params: {dropout: null, stage1_weights: false, use_fc: false, pretrain: false, l2_norm: false}
+    optim_params: {lr: 0.005, momentum: 0.9, weight_decay: 0.0001}
+    feat_dim: 256
+    fix: false
+  classifier:   # if l2_norm is true，bias should be false，scale cannot be 1.
+    def_file: ./models/DotProductClassifier.py
+    params: {num_classes: 10, l2_norm: false, bias: False, scale: 1}   # scale is a key factor, larger net--> smaller scale
+    optim_params: {lr: 0.005, momentum: 0.9, weight_decay: 0.0001}    # lr 0.001
+    fix: false
+  
+dataset:
+  name: CIFAR10
+  num_classes: 10
+  dirichlet: 0.1
+  imb_ratio: 1    # 0.1, 0.5, 1 for 10, 2, 1 # /* 1 is not long tail, 0.01 is the long tail */
+  img_per_client_dist: uniform   # (uniform, noraml, longtail, r_longtail）
+  prefetch: false    # load the whole dataset into RAM
+
+
+hetero_size:
+  train_hetero: true        # size heterogeneity during training
+  level: 2                  # CIFAR-10 (16/24/32. 0-Hard: 4/3/3, 1-Medium: 0/5/5, 2-Easy: 0/0/10)
+  eval_size_id: [0, 1, 2]   # CIFAR-10: (0: 16x16, 1:24x24, 2:32x32), 2 is the original size
+  sizes: [16, 24, 32]
+  
+hetero_pert:                # perturbation
+  perturb_num: 0            # (0, 1, 2). number of perturbations applied to every img. 
+  perturb_prob: 1           # (0, 0.5, 1). 1: every client uses a fixed aug. 0: randaug

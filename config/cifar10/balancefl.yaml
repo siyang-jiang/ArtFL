@@ -1,0 +1,91 @@
+metainfo:
+  optimizer: sgd
+  work_dir: ./exp_results_cifar10/dir_0.1
+  ckpt: ./exp_results/test_0.1_433/best.pth
+  exp_name: balancefl
+
+
+fl_opt:
+  rounds: 200
+  num_clients: 10
+  frac: 1               # the fraction of clients in each FL round
+  local_ep: 5           # local epoch
+  local_bs: 64          # local batch size
+  aggregation: fedavg   # fedavg, fedbn, fedprox
+  balanced_loader: false
+  feat_aug: false
+  branch: false
+  
+  multi_scale: false     # multi-scale training
+  multi_scale_batch: 5
+  size_align: false
+
+
+criterions:
+  # LwF Loss
+  # lambda=0 does not necessarily means CE Loss. Just logits of certain classes are musked.
+  name: BalanceFL
+  def_file: ./loss/LwFLoss.py
+  loss_params: {Temp: 2, lamda: 1, loss_cls: ce, loss_kd: ce, num_classes: 10}    
+
+  # CE Loss
+  # name: BCE
+  # def_file: ./loss/KDLoss.py
+  # loss_params: {Temp: 2, lamda: 0, loss_cls: ce, loss_kd: kl}   # lambda=0 means comman CE Loss
+
+
+networks:
+  feat_model:
+    # CUB: ResNet34/18/10-512d, ResNet10h-256d, ResNet10s-192d; CIFAR: ResNet32/20/8-512/256/128d
+    def_file: ResNet8 #ResNet8
+    params: {dropout: null, stage1_weights: false, use_fc: false, pretrain: false, l2_norm: false}
+    optim_params: {lr: 0.005, momentum: 0.9, weight_decay: 0.0001}
+    feat_dim: 512
+    fix: false
+  classifier:   # if l2_norm is true，bias should be false，scale cannot be 1.
+    def_file: ./models/DotProductClassifier.py
+    params: {num_classes: 10, l2_norm: false, bias: False, scale: 1}   # scale is a key factor, larger net--> smaller scale
+    optim_params: {lr: 0.005, momentum: 0.9, weight_decay: 0.0001}    # lr 0.001
+    fix: false
+  
+
+
+dataset:
+  name: CIFAR10
+  num_classes: 10
+  dirichlet: 0.1
+  # non_iidness: 2
+  # tao_ratio: 0.06     # tao_ratio * cls_per_client = 1 => IID case, tao_ratio = 1 is the Non-IID case;
+  imb_ratio: 1    # 0.1, 0.5, 1 for 10, 2, 1 # /* 1 is not long tail, 0.01 is the long tail */
+  img_per_client_dist: uniform   # (uniform, noraml, longtail, r_longtail）
+  prefetch: false    # load the whole dataset into RAM
+
+
+
+# V2 is using [0.8, 0.1, 0.1]; result -> Not good at all 
+
+# close size schedual -> FedAvg + Five batches for Each size
+# all 32 size -> no computational resource
+# multiscale_3scale_reverse -> rule-based adpative
+# Guassian / guassian_half / guassian_double -> Ours
+# guassian_prox - > Ours + Prox
+# 
+user: SY
+GPU: 1
+
+
+random_drop: false
+motivation_flag: false
+update_eval: true
+
+
+hetero_size:
+  train_hetero: true        # size heterogeneity during training
+  level: 2                  # CIFAR-10 (16/24/32. 0-Hard: 4/3/3, 1-Medium: 0/5/5, 2-Easy: 0/0/10)
+  eval_size_id: [0, 1, 2]   # CIFAR-10: (0: 16x16, 1:24x24, 2:32x32), 2 is the original size
+  # sizes: [16, 16, 16]
+  sizes: [16, 24, 32]
+  
+hetero_pert:                # perturbation
+  perturb_num: 0            # (0, 1, 2). number of perturbations applied to every img. 
+  perturb_prob: 1           # (0, 0.5, 1). 1: every client uses a fixed aug. 0: randaug

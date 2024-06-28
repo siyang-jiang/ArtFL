@@ -33,9 +33,9 @@ Before run the bash, make sure you have already prepare the right path to the da
 - bash run.sh
 ```
 
-```
 
 ### Source Tree
+```
 ├── config
 ├── data
 ├── dataloader

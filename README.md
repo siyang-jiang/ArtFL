@@ -5,6 +5,7 @@
 
 ### News
 [[Paper 🤗](http://syjiang.com/wp-content/uploads/2024/06/IPSN24_Arxiv.pdf)] [[Demo Video🤗](https://youtu.be/eeK6yRVEG3U)] 
+- 2024-06-29 Upload the training record of CIFAR-10
 - 2024-06-25 Release Sample Code🔥
 - 2024-05-16 Best Paper Award in IPSN 2024🔥
 
@@ -32,7 +33,6 @@ Before run the bash, make sure you have already prepare the right path to the da
 ```
 - bash run.sh
 ```
-
 
 ### Source Tree
 ```

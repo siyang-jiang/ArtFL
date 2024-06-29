@@ -16,8 +16,7 @@
 ### Fedbn: In round 199 => Acc in [(small/Medium/Large), Avg) =>  [0.275, 0.491, 0.555]), 0.5553].
 # python3 train_branch.py --cfg=./config/cifar10/fedbn.yaml
 
-### balancefl: 
-python3 train_branch.py --cfg=./config/cifar10/balancefl.yaml
+
 
 ### centralized: 
 python3 train_branch.py --cfg=./config/cifar10/centralized.yaml
@@ -27,6 +26,9 @@ python3 train_branch.py --cfg=./config/cifar10/local.yaml
 
 ### ArtFL: In round 153 => Acc in [(small/Medium/Large), Avg) => [0.52 , 0.608, 0.622]), 0.6223].
 python3 train_branch.py --cfg=./config/cifar10/artfl.yaml
+
+### balancefl: 
+python3 train_branch.py --cfg=./config/cifar10/balancefl.yaml
 
 ### Feddyn:
 python3 train_branch.py --cfg=./config/cifar10/feddyn.yaml

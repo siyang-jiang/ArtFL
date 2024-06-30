@@ -35,6 +35,13 @@ Before run the bash, make sure you have already prepare the right path to the da
 - bash run.sh
 ```
 
+See the training log in CIFAR-10
+```
+- tensorboard --log_dir=./exp_results_cifar10
+```
+
+
+
 ### Source Tree
 ```
 ├── config

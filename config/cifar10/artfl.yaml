@@ -9,7 +9,7 @@ metainfo:
   optimizer: sgd
   work_dir: ./exp_results_cifar10
   ckpt: ./exp_results/test_0.1_433/best.pth
-  exp_name: fedavg
+  exp_name: artfl
 
 
 fl_opt:

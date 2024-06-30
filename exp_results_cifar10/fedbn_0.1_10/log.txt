@@ -1,0 +1,823 @@
+Config: =====>  {'fl_opt': {'rounds': 200, 'num_clients': 10, 'frac': 1, 'local_ep': 5, 'local_bs': 32, 'aggregation': 'fedbn', 'balanced_loader': False, 'feat_aug': False, 'frac_cp': 1, 'backbone_only': False, 'imprint': False, 'spread_out': False, 'crt': False, 'branch': False, 'multi_scale': False, 'multi_scale_batch': 5, 'size_align': False}, 'criterions': {'def_file': './loss/KDLoss.py', 'loss_params': {'Temp': 2, 'lamda': 0, 'loss_cls': 'ce', 'loss_kd': 'kl'}}, 'networks': {'feat_model': {'def_file': 'ResNet8', 'params': {'dropout': None, 'stage1_weights': False, 'use_fc': False, 'pretrain': False, 'l2_norm': False}, 'optim_params': {'lr': 0.005, 'momentum': 0.9, 'weight_decay': 0.0001}, 'feat_dim': 256, 'fix': False}, 'classifier': {'def_file': './models/DotProductClassifier.py', 'params': {'num_classes': 10, 'l2_norm': False, 'bias': False, 'scale': 1}, 'optim_params': {'lr': 0.005, 'momentum': 0.9, 'weight_decay': 0.0001}, 'fix': False}}, 'dataset': {'name': 'CIFAR10', 'shot_few': 0, 'num_classes': 10, 'imb_ratio': 1, 'img_per_client_dist': 'uniform', 'prefetch': False, 'dirichlet': 0.1}, 'metainfo': {'optimizer': 'sgd', 'display_step': 10, 'display_grad': False, 'display_grad_step': 10, 'work_dir': './exp_results_cifar10/dir_0.1', 'exp_name': 'fedbn', 'log_dir': './exp_results/test', 'ckpt': './exp_results/test_0.1_433/best.pth'}, 'checkpoint': {'joint': 'checkpoints/alljoint_best_10.pth'}, 'user': 'User1', 'seed': 2021, 'test': False, 'motivation_flag': False, 'update_eval': True, 'others': {'real': False}, 'GPU': 0, 'random_drop': False, 'hetero_size': {'train_hetero': True, 'level': 2, 'eval_size_id': [0, 1, 2], 'sizes': [16, 24, 32]}, 'hetero_pert': {'perturb_num': 0, 'perturb_prob': 1}, 'cfg': './config/cifar10/fedbn.yaml'}
+
+
+ Round: 0, selected clients: [9 3 4 1 5 7 6 0 8 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.5988273908131772, -1.0, 0.0, 2.7925655258804563, array([0., 0., 0.]), array([0.165, 0.158, 0.149]), 0.1488]
+best round: 0, accuracy: 14.879999999999999
+
+
+ Round: 1, selected clients: [7 0 5 4 6 2 1 3 9 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.49380293509983986, -1.0, 0.0, 1.925325971701741, array([0., 0., 0.]), array([0.231, 0.28 , 0.301]), 0.30139999999999995]
+best round: 1, accuracy: 30.139999999999993
+
+
+ Round: 2, selected clients: [3 2 5 6 8 1 9 0 7 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.401391085603337, -1.0, 0.0, 2.0864332865893838, array([0., 0., 0.]), array([0.215, 0.238, 0.245]), 0.2453]
+
+
+ Round: 3, selected clients: [1 9 0 3 7 8 6 5 2 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.32757470905899255, -1.0, 0.0, 1.6258906557202342, array([0., 0., 0.]), array([0.259, 0.362, 0.402]), 0.4016]
+best round: 3, accuracy: 40.160000000000004
+
+
+ Round: 4, selected clients: [6 2 5 1 4 7 3 8 9 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.2637798584917438, -1.0, 0.0, 1.7441951870906631, array([0., 0., 0.]), array([0.252, 0.333, 0.351]), 0.3506000000000001]
+
+
+ Round: 5, selected clients: [4 1 6 9 7 8 3 0 2 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.21907637098237567, -1.0, 0.0, 1.49239612237839, array([0., 0., 0.]), array([0.258, 0.388, 0.448]), 0.44769999999999993]
+best round: 5, accuracy: 44.769999999999996
+
+
+ Round: 6, selected clients: [0 5 4 9 7 2 6 8 3 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.19614437057479633, -1.0, 0.0, 1.493990072885924, array([0., 0., 0.]), array([0.27 , 0.398, 0.447]), 0.4473999999999999]
+
+
+ Round: 7, selected clients: [7 3 5 1 9 8 6 4 0 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.17286096457585384, -1.0, 0.0, 1.4667282095139964, array([0., 0., 0.]), array([0.275, 0.413, 0.466]), 0.4657]
+best round: 7, accuracy: 46.57
+
+
+ Round: 8, selected clients: [9 8 5 1 6 0 4 7 2 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.15565071342382147, -1.0, 0.0, 1.4161387432808756, array([0., 0., 0.]), array([0.277, 0.424, 0.484]), 0.48410000000000003]
+best round: 8, accuracy: 48.410000000000004
+
+
+ Round: 9, selected clients: [1 2 4 5 0 9 3 8 7 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.1487449760955545, -1.0, 0.0, 1.430090564878774, array([0., 0., 0.]), array([0.278, 0.422, 0.488]), 0.4880999999999999]
+best round: 9, accuracy: 48.809999999999995
+
+
+ Round: 10, selected clients: [7 9 6 1 3 5 4 8 0 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.13233331354154762, -1.0, 0.0, 1.4656611537735849, array([0., 0., 0.]), array([0.278, 0.418, 0.476]), 0.47620000000000007]
+
+
+ Round: 11, selected clients: [9 8 4 7 0 2 1 3 5 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.1224879773000297, -1.0, 0.0, 1.3835082193136885, array([0., 0., 0.]), array([0.281, 0.431, 0.506]), 0.5064]
+best round: 11, accuracy: 50.63999999999999
+
+
+ Round: 12, selected clients: [3 1 4 6 2 0 5 7 9 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.12344387088087634, -1.0, 0.0, 1.3994934169435567, array([0., 0., 0.]), array([0.282, 0.44 , 0.502]), 0.5021]
+
+
+ Round: 13, selected clients: [1 3 7 4 5 6 9 8 2 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.1105275460863151, -1.0, 0.0, 1.3598584053743106, array([0., 0., 0.]), array([0.281, 0.445, 0.521]), 0.5215]
+best round: 13, accuracy: 52.15
+
+
+ Round: 14, selected clients: [9 5 8 1 3 2 6 7 0 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.10846303572174987, -1.0, 0.0, 1.3751638773963002, array([0., 0., 0.]), array([0.286, 0.45 , 0.52 ]), 0.5198]
+
+
+ Round: 15, selected clients: [7 0 5 9 6 2 1 8 4 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.10406386439636332, -1.0, 0.0, 1.366761793061343, array([0., 0., 0.]), array([0.281, 0.447, 0.521]), 0.5207999999999999]
+
+
+ Round: 16, selected clients: [3 2 8 1 4 7 5 9 6 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.09946387645628778, -1.0, 0.0, 1.3214978925303498, array([0., 0., 0.]), array([0.285, 0.456, 0.536]), 0.5356]
+best round: 16, accuracy: 53.559999999999995
+
+
+ Round: 17, selected clients: [5 8 1 0 9 7 3 6 4 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.09411755361729231, -1.0, 0.0, 1.3388926360157392, array([0., 0., 0.]), array([0.283, 0.461, 0.534]), 0.5345]
+
+
+ Round: 18, selected clients: [8 5 3 6 9 0 4 2 1 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.08885543199017165, -1.0, 0.0, 1.3475225941106161, array([0., 0., 0.]), array([0.284, 0.461, 0.533]), 0.5327999999999999]
+
+
+ Round: 19, selected clients: [9 0 7 2 3 5 1 6 4 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.09160147864264437, -1.0, 0.0, 1.3699819186969058, array([0., 0., 0.]), array([0.285, 0.453, 0.526]), 0.5262]
+
+
+ Round: 20, selected clients: [9 4 7 6 8 3 0 5 2 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.08708780732350513, -1.0, 0.0, 1.3957923076871361, array([0., 0., 0.]), array([0.285, 0.459, 0.526]), 0.5263000000000001]
+
+
+ Round: 21, selected clients: [4 9 5 7 3 0 8 1 6 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.07760072339693122, -1.0, 0.0, 1.3598240709424705, array([0., 0., 0.]), array([0.271, 0.457, 0.537]), 0.5367]
+best round: 21, accuracy: 53.669999999999995
+
+
+ Round: 22, selected clients: [0 4 5 9 1 2 6 3 8 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.07301449688496171, -1.0, 0.0, 1.3355805078751828, array([0., 0., 0.]), array([0.278, 0.464, 0.547]), 0.5467]
+best round: 22, accuracy: 54.669999999999995
+
+
+ Round: 23, selected clients: [2 1 0 8 6 9 4 3 7 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.07550032405626518, -1.0, 0.0, 1.3106196514871735, array([0., 0., 0.]), array([0.279, 0.474, 0.557]), 0.557]
+best round: 23, accuracy: 55.7
+
+
+ Round: 24, selected clients: [9 7 6 2 3 0 8 4 5 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.06990971196357064, -1.0, 0.0, 1.3476693795054313, array([0., 0., 0.]), array([0.276, 0.464, 0.546]), 0.5457000000000001]
+
+
+ Round: 25, selected clients: [0 6 3 4 7 2 8 1 5 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.07028435871614055, -1.0, 0.0, 1.342069187039895, array([0., 0., 0.]), array([0.275, 0.47 , 0.546]), 0.5458999999999999]
+
+
+ Round: 26, selected clients: [7 1 8 3 6 2 0 9 4 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.06651040521194765, -1.0, 0.0, 1.360450244716597, array([0., 0., 0.]), array([0.274, 0.462, 0.543]), 0.5428999999999999]
+
+
+ Round: 27, selected clients: [0 9 3 1 7 5 6 8 4 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.06789203164056631, -1.0, 0.0, 1.3108372828686843, array([0., 0., 0.]), array([0.28 , 0.473, 0.556]), 0.5560000000000002]
+
+
+ Round: 28, selected clients: [8 9 4 1 3 0 6 5 2 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.07529943019190463, -1.0, 0.0, 1.3273866508594, array([0., 0., 0.]), array([0.279, 0.469, 0.55 ]), 0.5499]
+
+
+ Round: 29, selected clients: [6 9 8 4 1 0 5 3 7 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.06300583308668492, -1.0, 0.0, 1.3166233972680124, array([0., 0., 0.]), array([0.275, 0.475, 0.552]), 0.5525]
+
+
+ Round: 30, selected clients: [6 3 5 9 8 7 1 4 2 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.06244146533650553, -1.0, 0.0, 1.330236431553861, array([0., 0., 0.]), array([0.28 , 0.476, 0.555]), 0.5552]
+
+
+ Round: 31, selected clients: [5 0 7 3 4 1 6 9 8 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.060111684967825096, -1.0, 0.0, 1.3298415024595582, array([0., 0., 0.]), array([0.277, 0.469, 0.556]), 0.5556]
+
+
+ Round: 32, selected clients: [8 7 4 2 3 1 5 0 9 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.06501642682324274, -1.0, 0.0, 1.3318182375526875, array([0., 0., 0.]), array([0.277, 0.474, 0.549]), 0.5492]
+
+
+ Round: 33, selected clients: [0 5 1 6 3 4 8 2 7 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.05817493543905744, -1.0, 0.0, 1.3285643808404133, array([0., 0., 0.]), array([0.28 , 0.474, 0.553]), 0.5533]
+
+
+ Round: 34, selected clients: [4 1 9 2 3 8 6 7 0 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.05707293841968721, -1.0, 0.0, 1.3135339573363705, array([0., 0., 0.]), array([0.285, 0.483, 0.563]), 0.5634]
+best round: 34, accuracy: 56.34
+
+
+ Round: 35, selected clients: [4 7 6 5 8 1 0 3 9 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.05580199094065136, -1.0, 0.0, 1.3236200994184577, array([0., 0., 0.]), array([0.281, 0.48 , 0.553]), 0.5527]
+
+
+ Round: 36, selected clients: [5 0 2 7 4 1 6 3 8 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.05987291330085883, -1.0, 0.0, 1.304532244038916, array([0., 0., 0.]), array([0.284, 0.478, 0.561]), 0.5606]
+
+
+ Round: 37, selected clients: [7 8 9 3 4 1 0 2 6 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04235675443203867, -1.0, 0.0, 1.3103472112900227, array([0., 0., 0.]), array([0.289, 0.484, 0.563]), 0.563]
+
+
+ Round: 38, selected clients: [3 1 5 4 0 6 2 7 9 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.046954086766374595, -1.0, 0.0, 1.3462222679131943, array([0., 0., 0.]), array([0.284, 0.469, 0.552]), 0.5522]
+
+
+ Round: 39, selected clients: [2 4 7 1 5 0 3 8 6 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.05272319403472938, -1.0, 0.0, 1.332335406992518, array([0., 0., 0.]), array([0.283, 0.479, 0.561]), 0.5613]
+
+
+ Round: 40, selected clients: [3 2 5 4 0 6 1 9 7 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04873317226228914, -1.0, 0.0, 1.3640777052939983, array([0., 0., 0.]), array([0.278, 0.474, 0.553]), 0.553]
+
+
+ Round: 41, selected clients: [8 4 9 7 5 3 1 0 2 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04947580916384994, -1.0, 0.0, 1.3482388624450938, array([0., 0., 0.]), array([0.283, 0.48 , 0.557]), 0.5569]
+
+
+ Round: 42, selected clients: [9 5 7 3 0 2 4 8 1 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04495837293323897, -1.0, 0.0, 1.37317769631384, array([0., 0., 0.]), array([0.28 , 0.473, 0.552]), 0.5523]
+
+
+ Round: 43, selected clients: [4 7 5 6 3 8 9 1 2 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.05022658110862053, -1.0, 0.0, 1.3446676054173046, array([0., 0., 0.]), array([0.276, 0.475, 0.56 ]), 0.5596]
+
+
+ Round: 44, selected clients: [0 7 2 8 3 4 9 1 5 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.040284737494391765, -1.0, 0.0, 1.328419757197021, array([0., 0., 0.]), array([0.285, 0.481, 0.565]), 0.5645]
+best round: 44, accuracy: 56.45
+
+
+ Round: 45, selected clients: [5 2 7 3 8 1 6 0 9 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04303620145151942, -1.0, 0.0, 1.3210633268482557, array([0., 0., 0.]), array([0.283, 0.481, 0.561]), 0.5614000000000001]
+
+
+ Round: 46, selected clients: [2 3 9 8 4 1 0 5 6 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04910830471579339, -1.0, 0.0, 1.3587887978017796, array([0., 0., 0.]), array([0.283, 0.471, 0.551]), 0.5515]
+
+
+ Round: 47, selected clients: [3 2 4 1 6 0 5 9 7 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.049923667643800365, -1.0, 0.0, 1.3112825894634548, array([0., 0., 0.]), array([0.282, 0.491, 0.572]), 0.5719]
+best round: 47, accuracy: 57.19
+
+
+ Round: 48, selected clients: [1 4 6 8 7 5 0 3 2 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.038525836640452144, -1.0, 0.0, 1.3212625558189344, array([0., 0., 0.]), array([0.274, 0.482, 0.562]), 0.5619]
+
+
+ Round: 49, selected clients: [8 5 9 0 2 7 6 3 1 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03512011919663373, -1.0, 0.0, 1.306502639904703, array([0., 0., 0.]), array([0.281, 0.489, 0.574]), 0.574]
+best round: 49, accuracy: 57.4
+
+
+ Round: 50, selected clients: [8 0 3 6 4 5 9 2 1 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0382074188040013, -1.0, 0.0, 1.362478116702293, array([0., 0., 0.]), array([0.278, 0.478, 0.556]), 0.5561]
+
+
+ Round: 51, selected clients: [8 5 6 7 1 9 4 0 2 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03820874861400161, -1.0, 0.0, 1.3558454778564386, array([0., 0., 0.]), array([0.271, 0.479, 0.559]), 0.5593]
+
+
+ Round: 52, selected clients: [8 2 7 3 6 4 0 9 5 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04715470382599708, -1.0, 0.0, 1.366686989104055, array([0., 0., 0.]), array([0.286, 0.481, 0.555]), 0.5553000000000001]
+
+
+ Round: 53, selected clients: [8 2 6 9 1 3 4 5 7 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04125681647206866, -1.0, 0.0, 1.3370197944850957, array([0., 0., 0.]), array([0.285, 0.478, 0.558]), 0.5585]
+
+
+ Round: 54, selected clients: [5 2 6 3 8 9 1 4 7 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03859352930508991, -1.0, 0.0, 1.363830210812957, array([0., 0., 0.]), array([0.283, 0.482, 0.552]), 0.5523]
+
+
+ Round: 55, selected clients: [4 7 6 3 0 5 9 2 8 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.034053460592700896, -1.0, 0.0, 1.3553790913164612, array([0., 0., 0.]), array([0.29 , 0.481, 0.562]), 0.5616]
+
+
+ Round: 56, selected clients: [7 5 3 2 1 8 4 6 0 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0377018157949177, -1.0, 0.0, 1.3377790405892018, array([0., 0., 0.]), array([0.282, 0.482, 0.559]), 0.5591999999999999]
+
+
+ Round: 57, selected clients: [5 6 0 1 7 4 9 8 2 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03626483702404306, -1.0, 0.0, 1.3598869304148287, array([0., 0., 0.]), array([0.286, 0.477, 0.552]), 0.5524]
+
+
+ Round: 58, selected clients: [2 5 4 1 0 7 8 3 6 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03786194982483807, -1.0, 0.0, 1.3522973949566615, array([0., 0., 0.]), array([0.276, 0.48 , 0.552]), 0.5517]
+
+
+ Round: 59, selected clients: [2 6 3 0 4 5 7 8 1 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.031134561340490984, -1.0, 0.0, 1.3769172709977686, array([0., 0., 0.]), array([0.27 , 0.482, 0.545]), 0.5452999999999999]
+
+
+ Round: 60, selected clients: [3 7 1 5 2 9 4 8 0 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.038029232869223766, -1.0, 0.0, 1.4052121928336527, array([0., 0., 0.]), array([0.281, 0.474, 0.544]), 0.5444000000000001]
+
+
+ Round: 61, selected clients: [3 1 8 6 0 9 5 2 7 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.036024770553435656, -1.0, 0.0, 1.3370951391899104, array([0., 0., 0.]), array([0.284, 0.487, 0.567]), 0.5667000000000001]
+
+
+ Round: 62, selected clients: [1 3 4 6 2 8 0 7 5 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.037070316887567345, -1.0, 0.0, 1.355493105385031, array([0., 0., 0.]), array([0.272, 0.484, 0.558]), 0.5579000000000001]
+
+
+ Round: 63, selected clients: [1 7 9 4 5 2 6 0 3 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.029539910935092385, -1.0, 0.0, 1.3823362897890954, array([0., 0., 0.]), array([0.272, 0.475, 0.556]), 0.5559000000000001]
+
+
+ Round: 64, selected clients: [8 2 7 1 6 4 0 5 3 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.042151224615261176, -1.0, 0.0, 1.300517996133043, array([0., 0., 0.]), array([0.286, 0.491, 0.57 ]), 0.5702999999999999]
+
+
+ Round: 65, selected clients: [9 6 2 0 1 3 8 7 4 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03419964817403552, -1.0, 0.0, 1.363531758304464, array([0., 0., 0.]), array([0.281, 0.483, 0.559]), 0.5588]
+
+
+ Round: 66, selected clients: [8 4 1 0 7 6 2 9 5 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.031626176841712046, -1.0, 0.0, 1.3190015475629595, array([0., 0., 0.]), array([0.289, 0.493, 0.572]), 0.5717000000000001]
+
+
+ Round: 67, selected clients: [2 0 8 9 1 3 7 5 6 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.023735821097787456, -1.0, 0.0, 1.3639856521073428, array([0., 0., 0.]), array([0.285, 0.482, 0.562]), 0.5617]
+
+
+ Round: 68, selected clients: [7 4 5 0 3 9 1 2 8 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03569866938502621, -1.0, 0.0, 1.3377389466929297, array([0., 0., 0.]), array([0.287, 0.485, 0.563]), 0.5631999999999999]
+
+
+ Round: 69, selected clients: [8 6 3 4 5 0 1 2 7 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0422784891412932, -1.0, 0.0, 1.384617558204927, array([0., 0., 0.]), array([0.285, 0.483, 0.548]), 0.5479]
+
+
+ Round: 70, selected clients: [1 3 2 5 8 7 6 4 9 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03405406468686275, -1.0, 0.0, 1.3581592654337755, array([0., 0., 0.]), array([0.281, 0.485, 0.558]), 0.5585]
+
+
+ Round: 71, selected clients: [1 6 2 5 8 4 3 9 0 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.029880922327050762, -1.0, 0.0, 1.3572173003893264, array([0., 0., 0.]), array([0.276, 0.483, 0.562]), 0.5617]
+
+
+ Round: 72, selected clients: [2 5 9 7 4 0 1 3 8 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.026716166954300596, -1.0, 0.0, 1.3395316808528954, array([0., 0., 0.]), array([0.286, 0.482, 0.567]), 0.5667]
+
+
+ Round: 73, selected clients: [1 6 0 4 9 2 3 8 5 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.034624088297626573, -1.0, 0.0, 1.2898067158040902, array([0., 0., 0.]), array([0.29 , 0.502, 0.577]), 0.5767]
+best round: 73, accuracy: 57.67
+
+
+ Round: 74, selected clients: [9 6 7 1 0 4 3 5 2 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03382262333814703, -1.0, 0.0, 1.372630713103762, array([0., 0., 0.]), array([0.272, 0.477, 0.547]), 0.5466000000000001]
+
+
+ Round: 75, selected clients: [6 3 0 8 2 7 9 1 5 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03148668799970983, -1.0, 0.0, 1.3135889353177168, array([0., 0., 0.]), array([0.277, 0.485, 0.564]), 0.5635]
+
+
+ Round: 76, selected clients: [8 0 7 3 2 4 6 1 9 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.039925776820212505, -1.0, 0.0, 1.3141567297786474, array([0., 0., 0.]), array([0.28 , 0.485, 0.57 ]), 0.5697000000000001]
+
+
+ Round: 77, selected clients: [6 8 4 9 3 7 0 2 5 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03955135633687074, -1.0, 0.0, 1.3588890965276896, array([0., 0., 0.]), array([0.276, 0.478, 0.552]), 0.5523]
+
+
+ Round: 78, selected clients: [9 7 1 6 2 0 5 3 4 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.025384683409985547, -1.0, 0.0, 1.3202066107711314, array([0., 0., 0.]), array([0.287, 0.488, 0.571]), 0.5713999999999999]
+
+
+ Round: 79, selected clients: [4 6 0 9 2 8 3 1 7 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02696840099936685, -1.0, 0.0, 1.342940073710713, array([0., 0., 0.]), array([0.291, 0.488, 0.561]), 0.5615]
+
+
+ Round: 80, selected clients: [5 2 7 9 4 8 0 3 6 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.028348915174724227, -1.0, 0.0, 1.316386679075805, array([0., 0., 0.]), array([0.284, 0.49 , 0.567]), 0.5673]
+
+
+ Round: 81, selected clients: [5 4 3 1 9 8 2 6 0 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027643233668668388, -1.0, 0.0, 1.3349682594315218, array([0., 0., 0.]), array([0.286, 0.492, 0.564]), 0.5644]
+
+
+ Round: 82, selected clients: [2 6 7 8 1 4 9 3 0 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.023839455310730347, -1.0, 0.0, 1.3339624508220156, array([0., 0., 0.]), array([0.287, 0.49 , 0.565]), 0.5645999999999999]
+
+
+ Round: 83, selected clients: [1 5 4 9 6 0 7 8 2 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03290470334137428, -1.0, 0.0, 1.3084152954562294, array([0., 0., 0.]), array([0.285, 0.491, 0.562]), 0.5619999999999999]
+
+
+ Round: 84, selected clients: [2 9 5 4 3 1 8 0 6 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.04009975242390037, -1.0, 0.0, 1.3349313271570549, array([0., 0., 0.]), array([0.275, 0.485, 0.557]), 0.5566000000000001]
+
+
+ Round: 85, selected clients: [9 8 5 6 7 3 1 4 0 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0262660191266664, -1.0, 0.0, 1.3153469170898613, array([0., 0., 0.]), array([0.277, 0.483, 0.563]), 0.5627000000000001]
+
+
+ Round: 86, selected clients: [8 1 6 9 4 3 0 2 7 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.025540633445332896, -1.0, 0.0, 1.3182130422145668, array([0., 0., 0.]), array([0.282, 0.49 , 0.564]), 0.5639]
+
+
+ Round: 87, selected clients: [0 1 3 4 2 9 7 8 6 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02947759935957255, -1.0, 0.0, 1.3261146928345, array([0., 0., 0.]), array([0.279, 0.487, 0.562]), 0.5616000000000001]
+
+
+ Round: 88, selected clients: [7 0 4 6 9 3 8 1 2 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.030818677361805196, -1.0, 0.0, 1.334885816778046, array([0., 0., 0.]), array([0.286, 0.491, 0.561]), 0.5609]
+
+
+ Round: 89, selected clients: [6 9 0 8 7 4 5 1 2 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.024545330152412663, -1.0, 0.0, 1.338344971179955, array([0., 0., 0.]), array([0.295, 0.49 , 0.562]), 0.5616999999999999]
+
+
+ Round: 90, selected clients: [4 2 5 1 3 6 7 0 9 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027862599507398854, -1.0, 0.0, 1.3177339649979987, array([0., 0., 0.]), array([0.29 , 0.493, 0.565]), 0.5645]
+
+
+ Round: 91, selected clients: [1 4 5 3 7 0 2 6 8 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02652029713378548, -1.0, 0.0, 1.3170701900595951, array([0., 0., 0.]), array([0.29 , 0.485, 0.566]), 0.5663]
+
+
+ Round: 92, selected clients: [6 8 9 7 1 5 0 2 3 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02526267171763444, -1.0, 0.0, 1.3430019085160776, array([0., 0., 0.]), array([0.284, 0.483, 0.561]), 0.5612]
+
+
+ Round: 93, selected clients: [5 6 0 3 1 2 7 4 8 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03229183786609708, -1.0, 0.0, 1.3467840532588269, array([0., 0., 0.]), array([0.287, 0.485, 0.565]), 0.5654]
+
+
+ Round: 94, selected clients: [8 6 5 9 0 7 4 2 3 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.022067842829419863, -1.0, 0.0, 1.354265737372704, array([0., 0., 0.]), array([0.278, 0.482, 0.56 ]), 0.5602]
+
+
+ Round: 95, selected clients: [9 4 2 8 6 0 3 7 1 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0285851944794867, -1.0, 0.0, 1.3195908668027392, array([0., 0., 0.]), array([0.283, 0.489, 0.57 ]), 0.5701]
+
+
+ Round: 96, selected clients: [5 1 0 7 6 9 8 2 4 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.022551309942105184, -1.0, 0.0, 1.310163918000837, array([0., 0., 0.]), array([0.282, 0.49 , 0.567]), 0.5673999999999999]
+
+
+ Round: 97, selected clients: [7 1 3 9 4 8 5 6 2 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.023246362871130976, -1.0, 0.0, 1.3457847239259726, array([0., 0., 0.]), array([0.278, 0.487, 0.561]), 0.5607]
+
+
+ Round: 98, selected clients: [1 5 0 4 2 8 3 6 9 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.028876690231903545, -1.0, 0.0, 1.3191452880383598, array([0., 0., 0.]), array([0.287, 0.494, 0.567]), 0.5670999999999999]
+
+
+ Round: 99, selected clients: [2 5 1 9 4 0 3 6 8 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02361434559616131, -1.0, 0.0, 1.316227194578007, array([0., 0., 0.]), array([0.287, 0.492, 0.57 ]), 0.5697]
+
+
+ Round: 100, selected clients: [2 7 1 3 6 9 4 5 0 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02546475080218231, -1.0, 0.0, 1.36785134878768, array([0., 0., 0.]), array([0.29 , 0.488, 0.549]), 0.5493]
+
+
+ Round: 101, selected clients: [5 3 7 9 8 4 1 2 0 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027887208284019627, -1.0, 0.0, 1.324497646371408, array([0., 0., 0.]), array([0.288, 0.489, 0.57 ]), 0.57]
+
+
+ Round: 102, selected clients: [5 7 0 9 6 3 1 4 8 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03339183077254209, -1.0, 0.0, 1.3670609165004939, array([0., 0., 0.]), array([0.275, 0.48 , 0.549]), 0.5488000000000001]
+
+
+ Round: 103, selected clients: [3 9 5 1 2 0 6 7 8 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.023078275186290426, -1.0, 0.0, 1.3170786919760755, array([0., 0., 0.]), array([0.286, 0.491, 0.565]), 0.5649]
+
+
+ Round: 104, selected clients: [1 6 0 8 4 9 2 3 5 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0318001369972679, -1.0, 0.0, 1.3034191831445607, array([0., 0., 0.]), array([0.274, 0.488, 0.564]), 0.5643]
+
+
+ Round: 105, selected clients: [1 5 3 2 9 4 7 0 6 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03383765562285778, -1.0, 0.0, 1.3099432962579252, array([0., 0., 0.]), array([0.281, 0.486, 0.565]), 0.5645]
+
+
+ Round: 106, selected clients: [2 0 7 8 3 6 4 5 1 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0279032109796646, -1.0, 0.0, 1.333244623536325, array([0., 0., 0.]), array([0.279, 0.486, 0.563]), 0.5625000000000001]
+
+
+ Round: 107, selected clients: [7 3 0 6 8 9 2 4 5 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.034900417659871924, -1.0, 0.0, 1.289902936861131, array([0., 0., 0.]), array([0.28 , 0.488, 0.569]), 0.5690000000000001]
+
+
+ Round: 108, selected clients: [6 0 3 7 9 8 5 1 4 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.030590580699730214, -1.0, 0.0, 1.3238862355137484, array([0., 0., 0.]), array([0.273, 0.488, 0.558]), 0.5579]
+
+
+ Round: 109, selected clients: [8 0 6 9 3 5 4 1 2 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02407785718176189, -1.0, 0.0, 1.3299830519286229, array([0., 0., 0.]), array([0.271, 0.482, 0.558]), 0.558]
+
+
+ Round: 110, selected clients: [5 4 9 3 6 1 0 7 8 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03623563670937262, -1.0, 0.0, 1.30051344636305, array([0., 0., 0.]), array([0.281, 0.494, 0.567]), 0.5669000000000001]
+
+
+ Round: 111, selected clients: [0 2 6 8 3 7 9 4 5 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.022782567498358712, -1.0, 0.0, 1.3109298034312997, array([0., 0., 0.]), array([0.276, 0.494, 0.568]), 0.5684]
+
+
+ Round: 112, selected clients: [7 4 2 3 1 5 0 9 8 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02495611938051659, -1.0, 0.0, 1.3303633379867983, array([0., 0., 0.]), array([0.279, 0.483, 0.564]), 0.5637000000000001]
+
+
+ Round: 113, selected clients: [4 7 0 5 6 8 2 9 3 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.026459952141807557, -1.0, 0.0, 1.3010088038170362, array([0., 0., 0.]), array([0.277, 0.486, 0.573]), 0.5726]
+
+
+ Round: 114, selected clients: [7 3 8 9 5 1 0 2 4 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.026414476216087203, -1.0, 0.0, 1.315753476117685, array([0., 0., 0.]), array([0.273, 0.485, 0.569]), 0.5692]
+
+
+ Round: 115, selected clients: [1 8 4 9 2 0 5 6 3 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.018084896381589624, -1.0, 0.0, 1.315224552862788, array([0., 0., 0.]), array([0.28 , 0.486, 0.57 ]), 0.5702999999999999]
+
+
+ Round: 116, selected clients: [0 1 9 4 3 8 5 2 7 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.030491208798923454, -1.0, 0.0, 1.3010054270963227, array([0., 0., 0.]), array([0.277, 0.489, 0.573]), 0.5727]
+
+
+ Round: 117, selected clients: [4 6 5 2 7 3 0 9 8 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01987450133561956, -1.0, 0.0, 1.3229297715883177, array([0., 0., 0.]), array([0.283, 0.489, 0.567]), 0.5666]
+
+
+ Round: 118, selected clients: [6 2 5 7 1 4 8 0 9 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02067716180781507, -1.0, 0.0, 1.2969959954343317, array([0., 0., 0.]), array([0.281, 0.489, 0.572]), 0.5719]
+
+
+ Round: 119, selected clients: [4 7 5 2 8 0 3 9 6 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027089763249110853, -1.0, 0.0, 1.3146097743897205, array([0., 0., 0.]), array([0.282, 0.489, 0.572]), 0.5716]
+
+
+ Round: 120, selected clients: [0 4 2 3 9 7 5 8 6 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02424346220792146, -1.0, 0.0, 1.3642394166681677, array([0., 0., 0.]), array([0.274, 0.478, 0.552]), 0.5517000000000001]
+
+
+ Round: 121, selected clients: [5 9 7 1 0 6 8 3 2 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02996776117279163, -1.0, 0.0, 1.3297134646568658, array([0., 0., 0.]), array([0.282, 0.487, 0.559]), 0.5594]
+
+
+ Round: 122, selected clients: [8 2 4 6 9 0 7 5 1 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02497674966611222, -1.0, 0.0, 1.3302893986554296, array([0., 0., 0.]), array([0.281, 0.486, 0.56 ]), 0.5601]
+
+
+ Round: 123, selected clients: [7 1 9 2 3 6 5 8 0 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027495377869678754, -1.0, 0.0, 1.28921724371611, array([0., 0., 0.]), array([0.287, 0.499, 0.571]), 0.5711999999999999]
+
+
+ Round: 124, selected clients: [9 8 6 5 7 4 1 3 0 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.015498715972244403, -1.0, 0.0, 1.288469507189444, array([0., 0., 0.]), array([0.292, 0.498, 0.578]), 0.5776]
+best round: 124, accuracy: 57.76
+
+
+ Round: 125, selected clients: [5 2 6 9 7 3 8 1 4 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.021385988535529792, -1.0, 0.0, 1.3572820956535203, array([0., 0., 0.]), array([0.287, 0.486, 0.557]), 0.5569]
+
+
+ Round: 126, selected clients: [5 4 6 1 3 2 7 8 9 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02576755611605584, -1.0, 0.0, 1.282683019965044, array([0., 0., 0.]), array([0.289, 0.501, 0.575]), 0.5753999999999999]
+
+
+ Round: 127, selected clients: [3 5 2 9 1 4 8 0 6 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03638306540239618, -1.0, 0.0, 1.3453806483705222, array([0., 0., 0.]), array([0.287, 0.482, 0.556]), 0.5557]
+
+
+ Round: 128, selected clients: [8 1 2 7 6 0 4 5 9 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.022373115264030692, -1.0, 0.0, 1.2626450697048555, array([0., 0., 0.]), array([0.288, 0.499, 0.579]), 0.579]
+best round: 128, accuracy: 57.9
+
+
+ Round: 129, selected clients: [1 5 9 0 6 8 4 3 2 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02661303468007592, -1.0, 0.0, 1.3047539839920677, array([0., 0., 0.]), array([0.277, 0.487, 0.558]), 0.5578]
+
+
+ Round: 130, selected clients: [3 7 9 0 2 1 6 8 4 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.022062608842053306, -1.0, 0.0, 1.2964580777470043, array([0., 0., 0.]), array([0.285, 0.496, 0.57 ]), 0.5696]
+
+
+ Round: 131, selected clients: [5 9 8 3 0 6 7 4 2 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027561269001361816, -1.0, 0.0, 1.3074195285698953, array([0., 0., 0.]), array([0.285, 0.495, 0.567]), 0.5671]
+
+
+ Round: 132, selected clients: [5 0 9 7 8 1 2 3 6 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.028755109538548117, -1.0, 0.0, 1.3030327365637633, array([0., 0., 0.]), array([0.282, 0.495, 0.572]), 0.5721]
+
+
+ Round: 133, selected clients: [7 9 1 2 0 4 3 6 5 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.029177602478488128, -1.0, 0.0, 1.3460605551010025, array([0., 0., 0.]), array([0.288, 0.49 , 0.558]), 0.5584]
+
+
+ Round: 134, selected clients: [0 1 2 6 8 7 3 9 5 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027005030254254797, -1.0, 0.0, 1.3516526620504368, array([0., 0., 0.]), array([0.278, 0.486, 0.556]), 0.5560999999999999]
+
+
+ Round: 135, selected clients: [3 7 2 4 0 9 6 5 1 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02279992271401841, -1.0, 0.0, 1.2983273100169397, array([0., 0., 0.]), array([0.289, 0.497, 0.571]), 0.5709000000000001]
+
+
+ Round: 136, selected clients: [5 3 0 7 8 1 9 4 6 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03746093204040252, -1.0, 0.0, 1.3198900396795954, array([0., 0., 0.]), array([0.274, 0.481, 0.549]), 0.5493]
+
+
+ Round: 137, selected clients: [2 6 4 8 5 1 0 9 7 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.026720368572087306, -1.0, 0.0, 1.2701284922414402, array([0., 0., 0.]), array([0.284, 0.498, 0.577]), 0.5770000000000001]
+
+
+ Round: 138, selected clients: [9 5 8 4 2 3 0 6 7 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01601700422201219, -1.0, 0.0, 1.298470693912274, array([0., 0., 0.]), array([0.284, 0.497, 0.573]), 0.5727]
+
+
+ Round: 139, selected clients: [6 1 9 0 5 8 2 3 4 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01932492089684527, -1.0, 0.0, 1.3372204886983796, array([0., 0., 0.]), array([0.278, 0.489, 0.556]), 0.5561]
+
+
+ Round: 140, selected clients: [1 0 3 9 6 4 2 8 7 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.025768110788428215, -1.0, 0.0, 1.4283246654461261, array([0., 0., 0.]), array([0.261, 0.46 , 0.528]), 0.5277]
+
+
+ Round: 141, selected clients: [9 8 5 4 6 1 2 7 3 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.034500603978429724, -1.0, 0.0, 1.2801833982207778, array([0., 0., 0.]), array([0.277, 0.492, 0.566]), 0.5660000000000001]
+
+
+ Round: 142, selected clients: [9 4 0 6 2 7 3 5 1 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.013907518111922923, -1.0, 0.0, 1.279350322327893, array([0., 0., 0.]), array([0.283, 0.497, 0.576]), 0.5756]
+
+
+ Round: 143, selected clients: [9 3 5 8 6 2 1 7 0 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01973772858752937, -1.0, 0.0, 1.2753186141421835, array([0., 0., 0.]), array([0.294, 0.502, 0.575]), 0.5748]
+
+
+ Round: 144, selected clients: [4 7 2 8 6 0 1 9 3 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01903021980914104, -1.0, 0.0, 1.292130678372128, array([0., 0., 0.]), array([0.285, 0.496, 0.572]), 0.5720000000000001]
+
+
+ Round: 145, selected clients: [4 6 7 0 1 2 5 9 3 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02709220750107878, -1.0, 0.0, 1.286864629652961, array([0., 0., 0.]), array([0.275, 0.496, 0.572]), 0.5716]
+
+
+ Round: 146, selected clients: [7 9 5 2 0 3 1 8 4 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.023925397001015144, -1.0, 0.0, 1.3134656826344215, array([0., 0., 0.]), array([0.283, 0.491, 0.561]), 0.5606]
+
+
+ Round: 147, selected clients: [4 7 6 8 2 0 3 5 1 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.024069739863787517, -1.0, 0.0, 1.2976538568611462, array([0., 0., 0.]), array([0.289, 0.501, 0.568]), 0.5684]
+
+
+ Round: 148, selected clients: [0 8 3 6 1 2 9 5 7 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0221349731286139, -1.0, 0.0, 1.292922068638134, array([0., 0., 0.]), array([0.287, 0.5  , 0.568]), 0.568]
+
+
+ Round: 149, selected clients: [4 5 6 3 2 9 7 1 0 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027977362997232375, -1.0, 0.0, 1.3215830675277387, array([0., 0., 0.]), array([0.286, 0.492, 0.557]), 0.5574999999999999]
+
+
+ Round: 150, selected clients: [0 9 8 6 5 2 3 7 1 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02622638353753215, -1.0, 0.0, 1.283567627231891, array([0., 0., 0.]), array([0.288, 0.497, 0.572]), 0.5718]
+
+
+ Round: 151, selected clients: [0 1 5 2 8 7 6 3 9 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027571340318813864, -1.0, 0.0, 1.3245027839173467, array([0., 0., 0.]), array([0.284, 0.484, 0.553]), 0.5527]
+
+
+ Round: 152, selected clients: [2 6 0 1 9 5 8 4 3 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01952951446635484, -1.0, 0.0, 1.2993695882544365, array([0., 0., 0.]), array([0.288, 0.494, 0.566]), 0.5658000000000001]
+
+
+ Round: 153, selected clients: [8 1 7 6 3 9 0 4 5 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.016429831678240366, -1.0, 0.0, 1.324328675239423, array([0., 0., 0.]), array([0.29 , 0.492, 0.561]), 0.5612]
+
+
+ Round: 154, selected clients: [3 8 5 7 2 1 9 4 6 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01854172309118702, -1.0, 0.0, 1.2979776912876602, array([0., 0., 0.]), array([0.283, 0.489, 0.567]), 0.567]
+
+
+ Round: 155, selected clients: [0 2 1 5 7 4 6 9 8 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.029112784391544827, -1.0, 0.0, 1.294726902431915, array([0., 0., 0.]), array([0.288, 0.497, 0.566]), 0.5657]
+
+
+ Round: 156, selected clients: [7 5 1 8 6 3 4 9 0 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02309156428875209, -1.0, 0.0, 1.2989325379603354, array([0., 0., 0.]), array([0.281, 0.495, 0.565]), 0.5654999999999999]
+
+
+ Round: 157, selected clients: [9 7 8 3 4 0 1 2 6 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02109769022343151, -1.0, 0.0, 1.2891719201091596, array([0., 0., 0.]), array([0.286, 0.495, 0.572]), 0.5722]
+
+
+ Round: 158, selected clients: [4 3 6 1 0 7 2 5 8 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.020287242792753887, -1.0, 0.0, 1.3044282230790891, array([0., 0., 0.]), array([0.29 , 0.495, 0.568]), 0.5677]
+
+
+ Round: 159, selected clients: [0 3 7 8 9 6 4 5 1 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.023178996420775026, -1.0, 0.0, 1.298276548678875, array([0., 0., 0.]), array([0.278, 0.49 , 0.565]), 0.5653]
+
+
+ Round: 160, selected clients: [7 5 3 0 4 1 9 8 6 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02467173819926414, -1.0, 0.0, 1.3031420737495822, array([0., 0., 0.]), array([0.287, 0.491, 0.561]), 0.5606]
+
+
+ Round: 161, selected clients: [6 5 2 9 0 7 8 4 1 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.018963610895352468, -1.0, 0.0, 1.3331562491114295, array([0., 0., 0.]), array([0.287, 0.486, 0.554]), 0.5538]
+
+
+ Round: 162, selected clients: [2 5 8 3 7 1 9 6 0 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027262773549076424, -1.0, 0.0, 1.326810197872777, array([0., 0., 0.]), array([0.289, 0.491, 0.558]), 0.5576000000000001]
+
+
+ Round: 163, selected clients: [0 3 1 6 8 5 7 4 2 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03706850186480992, -1.0, 0.0, 1.270778726378495, array([0., 0., 0.]), array([0.294, 0.498, 0.566]), 0.5656]
+
+
+ Round: 164, selected clients: [1 5 6 4 8 0 9 2 7 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01965453399113665, -1.0, 0.0, 1.2919808019778867, array([0., 0., 0.]), array([0.3  , 0.503, 0.569]), 0.5687]
+
+
+ Round: 165, selected clients: [9 2 5 6 4 8 3 0 7 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03146024863961101, -1.0, 0.0, 1.2826679835542252, array([0., 0., 0.]), array([0.279, 0.492, 0.567]), 0.5673]
+
+
+ Round: 166, selected clients: [9 2 0 4 3 5 7 6 1 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027712791689697418, -1.0, 0.0, 1.3365619209308068, array([0., 0., 0.]), array([0.27 , 0.478, 0.548]), 0.5478000000000001]
+
+
+ Round: 167, selected clients: [6 9 5 8 7 4 2 3 0 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.020102543518318174, -1.0, 0.0, 1.34149552651531, array([0., 0., 0.]), array([0.269, 0.481, 0.55 ]), 0.5502]
+
+
+ Round: 168, selected clients: [0 8 5 1 3 7 9 2 6 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03896787870403469, -1.0, 0.0, 1.286312259398702, array([0., 0., 0.]), array([0.283, 0.495, 0.57 ]), 0.5698]
+
+
+ Round: 169, selected clients: [6 4 3 2 7 9 1 0 5 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.020774064264990472, -1.0, 0.0, 1.296700068003161, array([0., 0., 0.]), array([0.285, 0.492, 0.564]), 0.5643]
+
+
+ Round: 170, selected clients: [6 4 9 1 3 2 7 0 5 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02364024374996876, -1.0, 0.0, 1.300393630096689, array([0., 0., 0.]), array([0.285, 0.494, 0.571]), 0.5711]
+
+
+ Round: 171, selected clients: [8 7 6 9 1 0 4 3 5 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.026346126816934524, -1.0, 0.0, 1.3184624823326747, array([0., 0., 0.]), array([0.285, 0.487, 0.553]), 0.5532999999999999]
+
+
+ Round: 172, selected clients: [1 3 9 5 2 8 6 0 7 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.020348866865380975, -1.0, 0.0, 1.2604512426128522, array([0., 0., 0.]), array([0.286, 0.5  , 0.578]), 0.5782999999999999]
+
+
+ Round: 173, selected clients: [6 9 1 7 2 4 5 8 0 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01900419478569819, -1.0, 0.0, 1.3013965077545888, array([0., 0., 0.]), array([0.278, 0.493, 0.561]), 0.5608]
+
+
+ Round: 174, selected clients: [9 6 2 7 0 8 5 1 4 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027955517774086048, -1.0, 0.0, 1.3142548610140954, array([0., 0., 0.]), array([0.275, 0.489, 0.558]), 0.5578]
+
+
+ Round: 175, selected clients: [4 1 5 0 8 7 2 6 9 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.033850855851954714, -1.0, 0.0, 1.3147045849605596, array([0., 0., 0.]), array([0.274, 0.487, 0.55 ]), 0.5504]
+
+
+ Round: 176, selected clients: [8 3 2 7 4 5 9 0 1 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.019648392694210794, -1.0, 0.0, 1.271905680733647, array([0., 0., 0.]), array([0.294, 0.5  , 0.574]), 0.5736]
+
+
+ Round: 177, selected clients: [3 2 9 8 5 6 4 1 7 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02113330764989423, -1.0, 0.0, 1.2669481904590487, array([0., 0., 0.]), array([0.276, 0.497, 0.571]), 0.5706]
+
+
+ Round: 178, selected clients: [7 4 3 8 2 6 9 0 1 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01809036130176498, -1.0, 0.0, 1.293120490195496, array([0., 0., 0.]), array([0.274, 0.488, 0.561]), 0.5609999999999999]
+
+
+ Round: 179, selected clients: [8 5 1 0 7 9 4 6 2 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.0172917373782981, -1.0, 0.0, 1.2793426039660836, array([0., 0., 0.]), array([0.285, 0.497, 0.571]), 0.5711999999999999]
+
+
+ Round: 180, selected clients: [1 6 5 4 3 0 7 8 2 9]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02967104022824456, -1.0, 0.0, 1.295483096627937, array([0., 0., 0.]), array([0.277, 0.495, 0.564]), 0.5643]
+
+
+ Round: 181, selected clients: [8 2 3 9 7 6 0 5 4 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.016897071226076317, -1.0, 0.0, 1.309410538966537, array([0., 0., 0.]), array([0.285, 0.491, 0.556]), 0.5563]
+
+
+ Round: 182, selected clients: [9 6 5 7 8 1 4 2 3 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.014033298571996866, -1.0, 0.0, 1.2845507653970518, array([0., 0., 0.]), array([0.286, 0.501, 0.569]), 0.5694]
+
+
+ Round: 183, selected clients: [9 6 2 3 8 0 5 1 7 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02404295192440106, -1.0, 0.0, 1.3327103772660285, array([0., 0., 0.]), array([0.265, 0.485, 0.547]), 0.5469999999999999]
+
+
+ Round: 184, selected clients: [5 4 9 3 7 2 6 8 0 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.020510173872397792, -1.0, 0.0, 1.272632428837064, array([0., 0., 0.]), array([0.285, 0.502, 0.568]), 0.5684000000000001]
+
+
+ Round: 185, selected clients: [1 6 8 2 0 9 7 4 3 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.025068569270773777, -1.0, 0.0, 1.3593035554605368, array([0., 0., 0.]), array([0.261, 0.476, 0.544]), 0.5444]
+
+
+ Round: 186, selected clients: [5 8 4 2 9 6 0 7 1 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.026722928107804224, -1.0, 0.0, 1.29065102736357, array([0., 0., 0.]), array([0.267, 0.491, 0.558]), 0.5580999999999999]
+
+
+ Round: 187, selected clients: [2 6 8 3 9 1 7 0 4 5]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.024425289157987595, -1.0, 0.0, 1.3168532458795996, array([0., 0., 0.]), array([0.278, 0.488, 0.56 ]), 0.56]
+
+
+ Round: 188, selected clients: [6 5 9 2 3 4 0 8 1 7]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.025886745151272726, -1.0, 0.0, 1.3004608620818878, array([0., 0., 0.]), array([0.265, 0.487, 0.559]), 0.5589999999999999]
+
+
+ Round: 189, selected clients: [2 1 9 8 3 5 0 6 7 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.02739608912527445, -1.0, 0.0, 1.3204643833689507, array([0., 0., 0.]), array([0.263, 0.482, 0.554]), 0.5537000000000001]
+
+
+ Round: 190, selected clients: [5 3 9 2 1 4 7 8 6 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.015942045770349453, -1.0, 0.0, 1.2699410887215505, array([0., 0., 0.]), array([0.275, 0.494, 0.568]), 0.5680999999999999]
+
+
+ Round: 191, selected clients: [5 0 1 8 2 9 3 7 6 4]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03857662055702331, -1.0, 0.0, 1.3289728765987463, array([0., 0., 0.]), array([0.266, 0.474, 0.544]), 0.5443999999999999]
+
+
+ Round: 192, selected clients: [3 4 0 7 8 5 6 1 9 2]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.01939627293656571, -1.0, 0.0, 1.2588040979070743, array([0., 0., 0.]), array([0.282, 0.493, 0.578]), 0.5784]
+
+
+ Round: 193, selected clients: [3 8 0 4 7 9 1 2 5 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.018472273073879764, -1.0, 0.0, 1.3008213824414516, array([0., 0., 0.]), array([0.272, 0.481, 0.558]), 0.5580999999999999]
+
+
+ Round: 194, selected clients: [0 8 7 3 5 1 4 9 2 6]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.014633450126827114, -1.0, 0.0, 1.3387380681081453, array([0., 0., 0.]), array([0.276, 0.476, 0.549]), 0.5486]
+
+
+ Round: 195, selected clients: [3 1 7 2 8 5 9 4 6 0]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.03578093480341726, -1.0, 0.0, 1.35846337133662, array([0., 0., 0.]), array([0.264, 0.475, 0.537]), 0.5371]
+
+
+ Round: 196, selected clients: [2 5 3 6 1 4 9 7 0 8]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.019088251157432266, -1.0, 0.0, 1.2959132405358658, array([0., 0., 0.]), array([0.265, 0.487, 0.562]), 0.5624]
+
+
+ Round: 197, selected clients: [0 6 2 5 7 1 9 4 8 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.026645031047076197, -1.0, 0.0, 1.2749514875820314, array([0., 0., 0.]), array([0.263, 0.492, 0.56 ]), 0.5604]
+
+
+ Round: 198, selected clients: [3 7 9 6 8 2 0 5 4 1]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.027271593269229445, -1.0, 0.0, 1.3208390318493635, array([0., 0., 0.]), array([0.271, 0.484, 0.547]), 0.5472999999999999]
+
+
+ Round: 199, selected clients: [8 4 7 9 5 1 6 0 2 3]
+cls_loss, kd_loss, train_loss, test_loss, train_acc, test_acc, test_acc_mean:  [0.033147430464537095, -1.0, 0.0, 1.2966517662629629, array([0., 0., 0.]), array([0.275, 0.491, 0.555]), 0.5553]
+total_computation:  6272000.0
+waiting_time:  12.527617201805114

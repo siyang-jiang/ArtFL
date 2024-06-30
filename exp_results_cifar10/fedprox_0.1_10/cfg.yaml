@@ -1,0 +1,95 @@
+GPU: 0
+cfg: ./config/cifar10/fedprox.yaml
+checkpoint:
+  joint: checkpoints/alljoint_best_10.pth
+criterions:
+  def_file: ./loss/KDLoss.py
+  loss_params:
+    Temp: 2
+    lamda: 0
+    loss_cls: ce
+    loss_kd: kl
+dataset:
+  dirichlet: 0.1
+  imb_ratio: 1
+  img_per_client_dist: uniform
+  name: CIFAR10
+  num_classes: 10
+  prefetch: false
+  shot_few: 0
+fl_opt:
+  aggregation: fedprox
+  backbone_only: false
+  balanced_loader: false
+  branch: false
+  crt: false
+  feat_aug: false
+  frac: 1
+  frac_cp: 1
+  imprint: false
+  local_bs: 32
+  local_ep: 5
+  multi_scale: false
+  multi_scale_batch: 5
+  num_clients: 10
+  rounds: 200
+  size_align: false
+  spread_out: false
+hetero_pert:
+  perturb_num: 0
+  perturb_prob: 1
+hetero_size:
+  eval_size_id:
+  - 0
+  - 1
+  - 2
+  level: 2
+  sizes:
+  - 16
+  - 24
+  - 32
+  train_hetero: true
+metainfo:
+  ckpt: ./exp_results/test_0.1_433/best.pth
+  display_grad: false
+  display_grad_step: 10
+  display_step: 10
+  exp_name: fedprox
+  log_dir: ./exp_results/test
+  optimizer: sgd
+  work_dir: ./exp_results_cifar10
+motivation_flag: false
+networks:
+  classifier:
+    def_file: ./models/DotProductClassifier.py
+    fix: false
+    optim_params:
+      lr: 0.005
+      momentum: 0.9
+      weight_decay: 0.0001
+    params:
+      bias: false
+      l2_norm: false
+      num_classes: 10
+      scale: 1
+  feat_model:
+    def_file: ResNet8
+    feat_dim: 256
+    fix: false
+    optim_params:
+      lr: 0.005
+      momentum: 0.9
+      weight_decay: 0.0001
+    params:
+      dropout: null
+      l2_norm: false
+      pretrain: false
+      stage1_weights: false
+      use_fc: false
+others:
+  real: false
+random_drop: false
+seed: 2021
+test: false
+update_eval: true
+user: User1

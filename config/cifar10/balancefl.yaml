@@ -1,6 +1,6 @@
 metainfo:
   optimizer: sgd
-  work_dir: ./exp_results_cifar10/dir_0.1
+  work_dir: ./exp_results_cifar10/
   ckpt: ./exp_results/test_0.1_433/best.pth
   exp_name: balancefl
 
@@ -10,7 +10,7 @@ fl_opt:
   num_clients: 10
   frac: 1               # the fraction of clients in each FL round
   local_ep: 5           # local epoch
-  local_bs: 64          # local batch size
+  local_bs: 32          # local batch size
   aggregation: fedavg   # fedavg, fedbn, fedprox
   balanced_loader: false
   feat_aug: false
@@ -40,7 +40,7 @@ networks:
     def_file: ResNet8 #ResNet8
     params: {dropout: null, stage1_weights: false, use_fc: false, pretrain: false, l2_norm: false}
     optim_params: {lr: 0.005, momentum: 0.9, weight_decay: 0.0001}
-    feat_dim: 512
+    feat_dim: 256
     fix: false
   classifier:   # if l2_norm is true，bias should be false，scale cannot be 1.
     def_file: ./models/DotProductClassifier.py
@@ -70,8 +70,8 @@ dataset:
 # Guassian / guassian_half / guassian_double -> Ours
 # guassian_prox - > Ours + Prox
 # 
-user: SY
-GPU: 1
+user: User1
+GPU: 0
 
 
 random_drop: false

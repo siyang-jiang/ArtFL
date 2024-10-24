@@ -7,7 +7,7 @@
 [[Paper 🤗](http://syjiang.com/wp-content/uploads/2024/06/IPSN24_Arxiv.pdf)] [[Demo Video🤗](https://youtu.be/eeK6yRVEG3U)] 
 - **2024-06-29** Upload the training record of CIFAR-10
 - **2024-06-25** Release Sample Code🔥
-- **2024-05-16** <font color="red">**Best Paper Award**</font> in IPSN 2024🔥🔥🔥
+- **2024-05-16** **Best Paper Award** in IPSN 2024 🏆🏆🏆
 - **2024-01-20** ArtFL is accepted by **IPSN 2024**🔥
 
 

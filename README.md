@@ -14,17 +14,17 @@
 
 ### Install
 1. Clone the repo into a local folder.
-```bash
+`
 git clone https://github.com/siyang-jiang/ArtFL.git
 
 cd ArtFL
-```
+`
 
 
 2. Install packages.
 ```
-- conda env create -f environment.yml
-- conda activate exFL
+conda env create -f environment.yml
+conda activate exFL
 ```
 
 ### Quick Start
@@ -32,12 +32,12 @@ Before run the bash, make sure you have already prepare the right path to the da
 - Change the data path: utils/utils.py change the path and make the data right
 
 ```
-- bash run.sh
+bash run.sh
 ```
 
 See the training log in CIFAR-10
 ```
-- tensorboard --log_dir=./exp_results_cifar10
+tensorboard --log_dir=./exp_results_cifar10
 ```
 
 

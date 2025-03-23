@@ -68,6 +68,16 @@ tensorboard --log_dir=./exp_results_cifar10
 ```
 
 ## Citation
+```
+@inproceedings{jiang2024artfl,
+  title={ArtFL: Exploiting data resolution in federated learning for dynamic runtime inference via multi-scale training},
+  author={Jiang, Siyang and Shuai, Xian and Xing, Guoliang},
+  booktitle={2024 23rd ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN)},
+  pages={27--38},
+  year={2024},
+  organization={IEEE}
+}
+```
 
 ## Acknowledgement
 [BalanceFL (IPSN 2022)](https://github.com/sxontheway/BalanceFL)

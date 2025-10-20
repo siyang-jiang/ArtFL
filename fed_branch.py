@@ -1,24 +1,21 @@
-from cmath import cos
 import copy
-from distutils.command.config import config
-from random import shuffle
-from re import L
 import threading
 import time
 from collections import OrderedDict
 
+import numpy as np
 import torch
-from data.dataloader import local_client_dataset, test_dataset
+import torch.nn as nn
+import torch.nn.functional as F
+from sklearn.linear_model import LogisticRegression, LinearRegression
+from multiprocessing import Process
+
+from data.dataloader import local_client_dataset
 from models.utils import *
+from models.model import BasicBlock, _weights_init
 from utils.train_helper import validate_one_model
 from utils.sampling import *
 from utils.misc import check_nan
-
-import numpy as np
-from sklearn.linear_model import LogisticRegression, LinearRegression
-from multiprocessing import Process
-import torchvision
-import time
 
 
 def return_state_dict(network):
@@ -88,10 +85,6 @@ def difference_models_norm_2(model_1, model_2):
     norm = sum(diff_list)
     return norm
 
-
-import torch.nn.functional as F
-import torch.nn as nn
-from models.model import BasicBlock, _weights_init
 
 class personalized_network_16(nn.Module):
     """

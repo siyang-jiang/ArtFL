@@ -250,7 +250,7 @@ This work builds upon:
 
 For questions or issues:
 - Open an issue on GitHub
-- Email: siyang.jiang@example.com
+- Email: syjiang [AT] ie.cuhk.edu.hk
 
 ## 📄 License
 

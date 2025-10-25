@@ -2,7 +2,7 @@
 
 [![Paper](https://img.shields.io/badge/Paper-IPSN%202024-blue)](http://syjiang.com/wp-content/uploads/2024/06/IPSN24_Arxiv.pdf)
 [![Demo](https://img.shields.io/badge/Demo-YouTube-red)](https://youtu.be/eeK6yRVEG3U)
-[![Slides](https://img.shields.io/badge/Slides-PDF-orange)](slides/)
+[![Slides](https://img.shields.io/badge/Slides-PPTX-orange)](slides/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Best Paper](https://img.shields.io/badge/Award-Best%20Paper%20IPSN%202024-gold.svg)](https://ipsn.acm.org/2024/)
 

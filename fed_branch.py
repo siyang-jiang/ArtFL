@@ -431,10 +431,13 @@ class Fed_server(Process):
         idx = [sorted_list.index(i) for i in time_loss] # the idx-th smallest
         
         print("Time record=====>" + str( self.time_record) )
-        for i in idx:
-            tmp = self.size_prob[i]
+        print(idx)
+        for i, client_idx in zip(idx, range(len(idx))):
+            # tmp = self.size_prob[i]
             tmp = self.prob[group[i]] # all [1/3 1/3 1/3], shuai baseline
-            self.size_prob[i] = tmp
+            self.size_prob[client_idx] = tmp
+            # self.size_prob[i] = tmp
+        print("Size prob=====>" + str( self.size_prob) )
 
         return self.size_prob
 
